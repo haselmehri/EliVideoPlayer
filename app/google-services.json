@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "85870189948",
+    "firebase_url": "https://elivideoplayer.firebaseio.com",
+    "project_id": "elivideoplayer",
+    "storage_bucket": "elivideoplayer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:85870189948:android:dda600d1a0e21a7f",
+        "android_client_info": {
+          "package_name": "haselmehri.app.com.elivideoplayer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "85870189948-9bifh4ufen9u9lugfskkcnhlqg5epa0b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "haselmehri.app.com.elivideoplayer",
+            "certificate_hash": "0b89fbefc58c6517275138e2b34a31d474517333"
+          }
+        },
+        {
+          "client_id": "85870189948-tub5ri9te72h45m4d1626c76cs6fe9uh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD57x6XnZI_5WTTDnfGycPHc9_ciXHGZVQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "85870189948-tub5ri9te72h45m4d1626c76cs6fe9uh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

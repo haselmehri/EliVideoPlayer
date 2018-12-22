@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/main_items_group">
+        <item
+            android:id="@+id/navigation_menu_select_videos"
+            android:icon="@drawable/ic_select_videos"
+            android:title="@string/menu_select_videos" />
+        <item
+            android:id="@+id/navigation_menu_select_from_storage"
+            android:icon="@drawable/ic_video_blue"
+            android:title="@string/menu_select_from_stiorage" />
+        <item
+            android:id="@+id/navigation_menu_favorite_list"
+            android:icon="@drawable/ic_favorite_gold"
+            android:title="@string/menu_favorite_list" />
+        <item
+            android:id="@+id/navigation_menu_load_subtitle"
+            android:icon="@drawable/ic_load_subtitle"
+            android:title="Load Subtitle" />
+    </group>
+    <group
+        android:id="@+id/other_items_group">
+<!--        <item
+            android:id="@+id/navigation_menu_setting"
+            android:icon="@drawable/ic_setting_black"
+            android:title="Setting"></item>-->
+        <item
+            android:id="@+id/navigation_menu_exit"
+            android:icon="@drawable/ic_exit_red"
+            android:title="@string/menu_exit" />
+    </group>
+</menu>

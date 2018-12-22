@@ -1,0 +1,15 @@
+#Internal package file, do not edit.
+#Sat Dec 22 19:59:17 IRST 2018
+1.base=D\:\\Project\\Android\\EliVideoPlayer\\app\\build\\intermediates\\merged_assets\\release\\mergeReleaseAssets\\out
+2.path=crashlytics-build.properties
+0.baseType=DIRECTORY
+2.base=D\:\\Project\\Android\\EliVideoPlayer\\app\\build\\intermediates\\merged_assets\\release\\mergeReleaseAssets\\out
+2.set=ASSET
+1.baseType=DIRECTORY
+count=3
+1.set=ASSET
+0.path=classes.dex
+0.set=DEX
+0.base=D\:\\Project\\Android\\EliVideoPlayer\\app\\build\\intermediates\\transforms\\dexMerger\\release\\0
+2.baseType=DIRECTORY
+1.path=fonts/iranian_sans.ttf

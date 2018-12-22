@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#5fd080</color>
+    <color name="colorPrimaryTransparent">#575fd080</color><!--دو عدد اول از سمت چپ ضفافیت رنگ را نشان میدهد-->
+    <color name="colorPrimaryDark">#43965b</color>
+    <color name="colorAccent">#607d8b</color>
+    <color name="music_player_dark_gray">#424242</color>
+    <color name="color_orange_dark">#F89406</color>
+    <color name="color_transparent">#99d6dfe4</color>
+    <color name="color_orange">#ffc71c</color>
+    <color name="white">#ffff</color>
+    <color name="black">#000</color>
+</resources>
