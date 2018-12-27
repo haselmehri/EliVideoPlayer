@@ -130,6 +130,10 @@ public class VideoPlayerActivity extends AppCompatActivity implements SurfaceHol
                 currentVideoIndex = 0;
 
                 filePath = mediaFile.getPath();
+
+                mediaFilesSubtitleList = new ArrayList<>();
+                mediaFilesSubtitleList.add(loadSubtitleBaseVideoFilename(filePath));
+
                 videoPlayer_isPlaying = true;
                 playButton.setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.ic_pause, null));
 

@@ -1,7 +1,6 @@
 package haselmehri.app.com.elivideoplayer;
 
 import android.app.Application;
-import android.content.Intent;
 import android.graphics.Typeface;
 
 public class BaseApplication extends Application {
