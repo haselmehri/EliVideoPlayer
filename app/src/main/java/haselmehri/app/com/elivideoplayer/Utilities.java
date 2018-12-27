@@ -27,6 +27,7 @@ import java.io.File;
 
 public class Utilities {
     public static final int PERMISSIONS_REQUEST_CODE_READ_EXTERNAL_STORAGE = 123;
+    public static final int PERMISSIONS_REQUEST_CODE_READ_EXTERNAL_STORAGE_COMPLETE_ACTION_USING = 124;
 
     public static void applyFontToMenuItem(Context context, MenuItem mi, Typeface typeface) {
         SpannableString mNewTitle = new SpannableString(mi.getTitle());

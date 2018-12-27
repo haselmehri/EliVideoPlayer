@@ -101,6 +101,7 @@ public class VideoPlayerActivity extends AppCompatActivity implements SurfaceHol
     private boolean isFullScreen = true;
     private boolean isDoingChangeSubtitle = false;
     private int mediaPlayer_currentPosition = 0;
+    private boolean firstAccessPermissionToStorage = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,7 +121,12 @@ public class VideoPlayerActivity extends AppCompatActivity implements SurfaceHol
 
         Intent intent = getIntent();
         if (intent.getAction() != null && intent.getAction().equals("android.intent.action.VIEW")) {
-            String realPath = Utilities.getUriRealPath(this, intent.getData()).replace("/mnt/media_rw", "/storage");
+            boolean result = Utilities.checkPermission(VideoPlayerActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE,
+                    Utilities.PERMISSIONS_REQUEST_CODE_READ_EXTERNAL_STORAGE_COMPLETE_ACTION_USING, "Access to Read External Storage is required!", "Access Dialog", "Yes", "No");
+            if (result)
+                playVideoFromCompleteActionUsingWindow();
+
+           /* String realPath = Utilities.getUriRealPath(this, intent.getData()).replace("/mnt/media_rw", "/storage");
             File file = new File(realPath);
             if (file.exists()) {
                 MediaFile mediaFile = new MediaFile();
@@ -138,6 +144,32 @@ public class VideoPlayerActivity extends AppCompatActivity implements SurfaceHol
                 playButton.setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.ic_pause, null));
 
                 setFavoriteImage(filePath);
+            }*/
+        }
+    }
+
+    private void playVideoFromCompleteActionUsingWindow() {
+        String realPath = Utilities.getUriRealPath(this, getIntent().getData()).replace("/mnt/media_rw", "/storage");
+        File file = new File(realPath);
+        if (file.exists()) {
+            MediaFile mediaFile = new MediaFile();
+            mediaFile.setPath(realPath);
+            mediaFiles.add(mediaFile);
+
+            currentVideoIndex = 0;
+
+            filePath = mediaFile.getPath();
+
+            mediaFilesSubtitleList = new ArrayList<>();
+            mediaFilesSubtitleList.add(loadSubtitleBaseVideoFilename(filePath));
+
+            videoPlayer_isPlaying = true;
+            playButton.setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.ic_pause, null));
+
+            setFavoriteImage(filePath);
+            if (firstAccessPermissionToStorage) {
+                firstAccessPermissionToStorage = false;
+                surfaceCreated(playerSurfaceView.getHolder());
             }
         }
     }
@@ -463,7 +495,7 @@ public class VideoPlayerActivity extends AppCompatActivity implements SurfaceHol
         if (mediaFiles != null && mediaFiles.size() > 0) {
             if (currentVideoIndex < mediaFiles.size() - 1) {
                 currentVideoIndex += 1;
-                txtSelectedCountVideo.setText( getResources().getString(R.string.label_videos).concat(String.valueOf((currentVideoIndex + 1)))
+                txtSelectedCountVideo.setText(getResources().getString(R.string.label_videos).concat(String.valueOf((currentVideoIndex + 1)))
                         .concat(getResources().getString(R.string.label_video_of)).concat(String.valueOf(mediaFiles.size())));
                 MediaFile mediaFile = mediaFiles.get(currentVideoIndex);
                 txtVideoInfo.setText(mediaFile.getPath().substring(mediaFile.getPath().lastIndexOf("/") + 1));
@@ -472,7 +504,7 @@ public class VideoPlayerActivity extends AppCompatActivity implements SurfaceHol
 
                 surfaceCreated(playerSurfaceView.getHolder());
             } else {
-                txtSelectedCountVideo.setText( getResources().getString(R.string.label_video_1_of).concat(String.valueOf(mediaFiles.size())));
+                txtSelectedCountVideo.setText(getResources().getString(R.string.label_video_1_of).concat(String.valueOf(mediaFiles.size())));
                 currentVideoIndex = 0;
                 MediaFile mediaFile = mediaFiles.get(0);
                 txtVideoInfo.setText(mediaFile.getPath().substring(mediaFile.getPath().lastIndexOf("/") + 1));
@@ -678,6 +710,15 @@ public class VideoPlayerActivity extends AppCompatActivity implements SurfaceHol
         if (requestCode == Utilities.PERMISSIONS_REQUEST_CODE_READ_EXTERNAL_STORAGE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 selectFileOrFolder();
+            } else {
+                Snackbar snackbar = Snackbar.make(videoPlayerCoordinator, "You do not have access to Read External Storage!You can not select video from external storage!", Snackbar.LENGTH_LONG);
+                snackbar.getView().setBackgroundColor(ContextCompat.getColor(VideoPlayerActivity.this, R.color.color_orange));
+                snackbar.show();
+            }
+        } else if (requestCode == Utilities.PERMISSIONS_REQUEST_CODE_READ_EXTERNAL_STORAGE_COMPLETE_ACTION_USING) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                firstAccessPermissionToStorage = true;
+                playVideoFromCompleteActionUsingWindow();
             } else {
                 Snackbar snackbar = Snackbar.make(videoPlayerCoordinator, "You do not have access to Read External Storage!You can not select video from external storage!", Snackbar.LENGTH_LONG);
                 snackbar.getView().setBackgroundColor(ContextCompat.getColor(VideoPlayerActivity.this, R.color.color_orange));
