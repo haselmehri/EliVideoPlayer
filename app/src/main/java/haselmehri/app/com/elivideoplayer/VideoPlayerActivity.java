@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.media.MediaPlayer;
-import android.media.SubtitleData;
 import android.media.TimedText;
 import android.net.Uri;
 import android.os.Build;
@@ -244,9 +243,10 @@ public class VideoPlayerActivity extends AppCompatActivity implements SurfaceHol
         toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.color_orange_dark));
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setHomeButtonEnabled(true);
-        actionBar.setDisplayHomeAsUpEnabled(true);
-
+        if (actionBar != null) {
+            actionBar.setHomeButtonEnabled(true);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
         ActionBarDrawerToggle actionBarDrawerToggle = new
                 ActionBarDrawerToggle(this, drawerLayout, toolbar, 0, 0);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
@@ -764,7 +764,8 @@ public class VideoPlayerActivity extends AppCompatActivity implements SurfaceHol
     private void fullScreenDevice() {
         visisbleRelativeLayoutButtonsInLandscape = false;
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getSupportActionBar().hide();
+        if (getSupportActionBar() != null)
+            getSupportActionBar().hide();
         relativeLayoutButtons.setVisibility(View.INVISIBLE);
         seekBar.setVisibility(View.INVISIBLE);
         frameLayout.bringToFront();
@@ -774,7 +775,8 @@ public class VideoPlayerActivity extends AppCompatActivity implements SurfaceHol
     private void defaultScreenDevice() {
         visisbleRelativeLayoutButtonsInLandscape = true;
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getSupportActionBar().show();
+        if (getSupportActionBar() != null)
+            getSupportActionBar().show();
         relativeLayoutButtons.setVisibility(View.VISIBLE);
         seekBar.setVisibility(View.VISIBLE);
         relativeLayoutButtons.bringToFront();
@@ -849,9 +851,7 @@ public class VideoPlayerActivity extends AppCompatActivity implements SurfaceHol
                     try {
                         prepareViews(videoPlayer_isPlaying);
                         isDoingChangeSubtitle = false;
-                    }
-                    catch (Exception e)
-                    {
+                    } catch (Exception e) {
                         Crashlytics.log(Log.ERROR, TAG, "setOnPreparedListener->onPrepared");
                         Crashlytics.logException(e);
                     }
