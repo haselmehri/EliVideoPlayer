@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.media.MediaPlayer;
+import android.media.SubtitleData;
 import android.media.TimedText;
 import android.net.Uri;
 import android.os.Build;
@@ -125,26 +126,6 @@ public class VideoPlayerActivity extends AppCompatActivity implements SurfaceHol
                     Utilities.PERMISSIONS_REQUEST_CODE_READ_EXTERNAL_STORAGE_COMPLETE_ACTION_USING, "Access to Read External Storage is required!", "Access Dialog", "Yes", "No");
             if (result)
                 playVideoFromCompleteActionUsingWindow();
-
-           /* String realPath = Utilities.getUriRealPath(this, intent.getData()).replace("/mnt/media_rw", "/storage");
-            File file = new File(realPath);
-            if (file.exists()) {
-                MediaFile mediaFile = new MediaFile();
-                mediaFile.setPath(realPath);
-                mediaFiles.add(mediaFile);
-
-                currentVideoIndex = 0;
-
-                filePath = mediaFile.getPath();
-
-                mediaFilesSubtitleList = new ArrayList<>();
-                mediaFilesSubtitleList.add(loadSubtitleBaseVideoFilename(filePath));
-
-                videoPlayer_isPlaying = true;
-                playButton.setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.ic_pause, null));
-
-                setFavoriteImage(filePath);
-            }*/
         }
     }
 
@@ -171,6 +152,7 @@ public class VideoPlayerActivity extends AppCompatActivity implements SurfaceHol
                 firstAccessPermissionToStorage = false;
                 surfaceCreated(playerSurfaceView.getHolder());
             }
+            seekBar.setEnabled(true);
         }
     }
 
@@ -222,6 +204,7 @@ public class VideoPlayerActivity extends AppCompatActivity implements SurfaceHol
             txtVideoInfo.setText(mediaFiles.get(0).getPath().substring(mediaFiles.get(0).getPath().lastIndexOf("/") + 1));
             filePath = mediaFiles.get(0).getPath();
             videoPlayer_isPlaying = mediaPlayer.isPlaying();
+            seekBar.setEnabled(true);
 
             surfaceCreated(playerSurfaceView.getHolder());
         } else {
@@ -436,6 +419,7 @@ public class VideoPlayerActivity extends AppCompatActivity implements SurfaceHol
         });
 
         seekBar = findViewById(R.id.seek_bar);
+        seekBar.setEnabled(false);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -591,8 +575,8 @@ public class VideoPlayerActivity extends AppCompatActivity implements SurfaceHol
     }
 
     private String loadSubtitleBaseVideoFilename(String videoPath) {
-        String extension = videoPath.substring(filePath.lastIndexOf("."));
-        String subtitlePath = filePath.replace(extension, ".srt");
+        String extension = videoPath.substring(videoPath.lastIndexOf("."));
+        String subtitlePath = videoPath.replace(extension, ".srt");
         if (new File(subtitlePath).exists())
             return subtitlePath;
 
@@ -613,6 +597,7 @@ public class VideoPlayerActivity extends AppCompatActivity implements SurfaceHol
                         MediaFile mediaFile = mediaFiles.get(0);
                         txtVideoInfo.setText(mediaFile.getPath().substring(mediaFile.getPath().lastIndexOf("/") + 1));
                         filePath = mediaFile.getPath();
+                        seekBar.setEnabled(true);
 
                         isStopActivity = false;
 
@@ -659,6 +644,7 @@ public class VideoPlayerActivity extends AppCompatActivity implements SurfaceHol
                         currentVideoIndex = 0;
                         txtVideoInfo.setText(mediaFiles.get(0).getPath().substring(mediaFiles.get(0).getPath().lastIndexOf("/") + 1));
                         filePath = mediaFiles.get(0).getPath();
+                        seekBar.setEnabled(true);
 
                         isStopActivity = false;
 
@@ -688,6 +674,7 @@ public class VideoPlayerActivity extends AppCompatActivity implements SurfaceHol
                                 currentVideoIndex = 0;
                                 txtVideoInfo.setText(mediaFiles.get(0).getPath().substring(mediaFiles.get(0).getPath().lastIndexOf("/") + 1));
                                 filePath = mediaFiles.get(0).getPath();
+                                seekBar.setEnabled(true);
 
                                 isStopActivity = false;
 
@@ -859,8 +846,15 @@ public class VideoPlayerActivity extends AppCompatActivity implements SurfaceHol
             mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 @Override
                 public void onPrepared(MediaPlayer mp) {
-                    prepareViews(videoPlayer_isPlaying);
-                    isDoingChangeSubtitle = false;
+                    try {
+                        prepareViews(videoPlayer_isPlaying);
+                        isDoingChangeSubtitle = false;
+                    }
+                    catch (Exception e)
+                    {
+                        Crashlytics.log(Log.ERROR, TAG, "setOnPreparedListener->onPrepared");
+                        Crashlytics.logException(e);
+                    }
                 }
             });
 
@@ -955,7 +949,6 @@ public class VideoPlayerActivity extends AppCompatActivity implements SurfaceHol
 
     @Override
     protected void onStop() {
-        super.onStop();
         isStopActivity = true;
         if (isDoingChangeSubtitle) {
             mediaPlayer_currentPosition = mediaPlayer.getCurrentPosition();
@@ -964,6 +957,8 @@ public class VideoPlayerActivity extends AppCompatActivity implements SurfaceHol
             videoPlayer_isPlaying = mediaPlayer.isPlaying();
             mediaPlayer.pause();
         }
+        super.onStop();
+
     }
 
     @Override

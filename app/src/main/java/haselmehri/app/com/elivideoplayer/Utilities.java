@@ -145,14 +145,6 @@ public class Utilities {
                     // Get columns name by uri type.
                     String columnName = MediaStore.Images.Media.DATA;
 
-                    /*if (uri == MediaStore.Images.Media.EXTERNAL_CONTENT_URI) {
-                        columnName = MediaStore.Images.Media.DATA;
-                    } else if (uri == MediaStore.Audio.Media.EXTERNAL_CONTENT_URI) {
-                        columnName = MediaStore.Audio.Media.DATA;
-                    } else if (uri == MediaStore.Video.Media.EXTERNAL_CONTENT_URI) {
-                        columnName = MediaStore.Video.Media.DATA;
-                    }*/
-
                     // Get column index.
                     int columnIndex = cursor.getColumnIndex(columnName);
 
@@ -169,12 +161,13 @@ public class Utilities {
                         }
                     }
 
-                    if (!ret.equals("") && new File(ret).exists())
+                    if (ret != null && !ret.equals("") && new File(ret).exists())
                         return ret;
                 }
             }
             return ret;
         } catch (Exception e) {
+            ret = "";
             return ret;
         } finally {
             if (cursor != null)
