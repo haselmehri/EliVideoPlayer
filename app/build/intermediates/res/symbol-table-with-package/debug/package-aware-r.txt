@@ -795,6 +795,7 @@ dimen abc_text_size_subhead_material
 dimen abc_text_size_subtitle_material_toolbar
 dimen abc_text_size_title_material
 dimen abc_text_size_title_material_toolbar
+dimen about_title_font_size
 dimen cardview_compat_inset_shadow
 dimen cardview_default_elevation
 dimen cardview_default_radius
@@ -1060,6 +1061,7 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable ic_about
 drawable ic_audio
 drawable ic_camera
 drawable ic_crop_black
@@ -1085,6 +1087,7 @@ drawable ic_skip_previous
 drawable ic_stretch_black
 drawable ic_video_blue
 drawable ic_videocam
+drawable logo
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable music_player_background
@@ -1101,6 +1104,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable selector_ok_button
 drawable selector_play_button
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -1166,6 +1170,7 @@ id customPanel
 id dark
 id decor_content_parent
 id default_activity_button
+id description_text_view
 id design_bottom_sheet
 id design_menu_item_action_area
 id design_menu_item_action_area_stub
@@ -1201,6 +1206,7 @@ id forever
 id forward_button
 id frame_root
 id ghost_view
+id github_link_text_view
 id glide_custom_view_target_tag
 id gone
 id group_divider
@@ -1235,6 +1241,7 @@ id mtrl_internal_children_alpha_tag
 id multiply
 id navigation_header_container
 id navigation_header_image
+id navigation_menu_about
 id navigation_menu_exit
 id navigation_menu_favorite_list
 id navigation_menu_load_subtitle
@@ -1247,6 +1254,7 @@ id normal
 id notification_background
 id notification_main_column
 id notification_main_column_container
+id ok_button
 id other_items_group
 id outline
 id packed
@@ -1332,6 +1340,7 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
+id title_text_view
 id toolbar
 id top
 id topPanel
@@ -1422,6 +1431,7 @@ layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout filegallery_item
 layout filepicker_gallery
+layout layout_about_dialog
 layout layout_navigation_header_video_player
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
@@ -1487,6 +1497,9 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
+string about_description
+string about_github_link
+string about_ok_button
 string android_animations_lib_name
 string app_name
 string appbar_scrolling_view_behavior

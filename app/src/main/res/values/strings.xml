@@ -10,5 +10,8 @@
     <string name="menu_favorite_list" translatable="false">Favorite List</string>
     <string name="menu_load_subtitle" translatable="false">Load Subtitle</string>
     <string name="menu_exit" translatable="false">Exit</string>
+    <string name="about_ok_button" translatable="false">Ok</string>
     <string name="menu_select_from_stiorage" translatable="false">Select From Storage</string>
+    <string name="about_description" translatable="false">Eli Video Player is an open source app that has the ability to display subtitles that has been developed by &lt;a href="https://github.com/haselmehri">Yadollah Haselmehri&lt;/a>.\nGet this source app from Github via the link below</string>
+    <string name="about_github_link" translatable="false">&lt;a href="https://github.com/haselmehri/EliVideoPlayer">Github&lt;/a></string>
 </resources>

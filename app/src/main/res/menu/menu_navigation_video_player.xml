@@ -25,6 +25,10 @@
             android:icon="@drawable/ic_setting_black"
             android:title="Setting"></item>-->
         <item
+            android:id="@+id/navigation_menu_about"
+            android:icon="@drawable/ic_about"
+            android:title="About" />
+        <item
             android:id="@+id/navigation_menu_exit"
             android:icon="@drawable/ic_exit_red"
             android:title="@string/menu_exit" />
