@@ -75,7 +75,7 @@
                     android:layout_marginLeft="@dimen/standard_margin"
                     android:clickable="true"
                     android:padding="@dimen/very_small_padding"
-                    android:src="@drawable/ic_favorite_gray" />
+                    android:src="@drawable/ic_favorite_heart_gray" />
 
                 <TextView
                     android:id="@+id/selected_video_count_textview"

@@ -17,14 +17,16 @@ public class VideoPlayerSQLiteHelper extends SQLiteOpenHelper {
 
     private static final String TAG = "DatabaseOpenHelper";
     private final static String DATABASE_NAME = "db_video_player";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
     private final static String FAVORITE_TABLE_NAME = "tblFavorite";
 
     private static final String COL_FILE_PATH = "col_file_path";
+    private static final String COL_SUBTITLE_PATH = "col_subtitle_path";
 
     private static final String SQL_COMMAND_CREATE_FAVORITE_TABLE =
             "create table if not exists " + FAVORITE_TABLE_NAME + " (" +
-                    COL_FILE_PATH + " TEXT);";
+                    COL_FILE_PATH + " TEXT NOT NULL," +
+                    COL_SUBTITLE_PATH + " TEXT);";
 
     private Context context;
 
@@ -61,6 +63,10 @@ public class VideoPlayerSQLiteHelper extends SQLiteOpenHelper {
     public boolean addFavorite(Favorite favorite) {
         ContentValues cv = new ContentValues();
         cv.put(COL_FILE_PATH, favorite.getFilePath());
+        if (favorite.getSubTitlePath() != null)
+            cv.put(COL_SUBTITLE_PATH, favorite.getSubTitlePath());
+        else
+            cv.putNull(COL_SUBTITLE_PATH);
 
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         long isInserted = sqLiteDatabase.insert(FAVORITE_TABLE_NAME, null, cv);
@@ -81,6 +87,7 @@ public class VideoPlayerSQLiteHelper extends SQLiteOpenHelper {
                 Favorite favorite = new Favorite();
 
                 favorite.setFilePath(cursor.getString(0));
+                favorite.setSubTitlePath(cursor.getString(1));
 
                 favorites.add(favorite);
                 cursor.moveToNext();

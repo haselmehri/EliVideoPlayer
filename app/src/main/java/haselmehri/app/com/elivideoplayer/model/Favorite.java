@@ -1,6 +1,8 @@
 package haselmehri.app.com.elivideoplayer.model;
 
 public class Favorite {
+    private String filePath;
+    private String subTitlePath;
     public String getFilePath() {
         return filePath;
     }
@@ -9,5 +11,12 @@ public class Favorite {
         this.filePath = title;
     }
 
-    private String filePath;
+
+    public String getSubTitlePath() {
+        return subTitlePath;
+    }
+
+    public void setSubTitlePath(String subTitlePath) {
+        this.subTitlePath = subTitlePath;
+    }
 }

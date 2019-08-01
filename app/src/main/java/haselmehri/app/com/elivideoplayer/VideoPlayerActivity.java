@@ -1,13 +1,10 @@
 package haselmehri.app.com.elivideoplayer;
 
 import android.Manifest;
-import android.app.Dialog;
 import android.content.ClipData;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
-import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.media.TimedText;
 import android.net.Uri;
@@ -23,13 +20,11 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SubMenu;
@@ -39,10 +34,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.BounceInterpolator;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -164,10 +157,10 @@ public class VideoPlayerActivity extends AppCompatActivity implements SurfaceHol
 
     private void setFavoriteImage(String filePath) {
         if (videoPlayerSQLiteHelper.checkFavoriteExists(filePath)) {
-            favoriteImage.setImageResource(R.drawable.ic_favorite_gold);
+            favoriteImage.setImageResource(R.drawable.ic_favorite_heart_gold);
             isFavorite = true;
         } else {
-            favoriteImage.setImageResource(R.drawable.ic_favorite_gray);
+            favoriteImage.setImageResource(R.drawable.ic_favorite_heart_gray);
             isFavorite = false;
         }
     }
@@ -186,6 +179,8 @@ public class VideoPlayerActivity extends AppCompatActivity implements SurfaceHol
                 if (!videoPlayerSQLiteHelper.checkFavoriteExists(mediaFile.getPath())) {
                     Favorite favorite = new Favorite();
                     favorite.setFilePath(mediaFile.getPath());
+                    favorite.setSubTitlePath(mediaFilesSubtitleList.get(currentVideoIndex));
+
                     if (videoPlayerSQLiteHelper.addFavorite(favorite))
                         setFavoriteImage(mediaFile.getPath());
                 } else {
@@ -199,20 +194,38 @@ public class VideoPlayerActivity extends AppCompatActivity implements SurfaceHol
         List<Favorite> favorites = videoPlayerSQLiteHelper.getFavorites();
         if (favorites != null && favorites.size() > 0) {
             mediaFiles = new ArrayList<>();
+            mediaFilesSubtitleList = new ArrayList<>();
             MediaFile mediaFile;
             for (Favorite favorite : favorites) {
-                mediaFile = new MediaFile();
-                mediaFile.setPath(favorite.getFilePath());
-                mediaFiles.add(mediaFile);
-            }
-            txtSelectedCountVideo.setText(getResources().getString(R.string.label_video_1_of).concat(String.valueOf(mediaFiles.size())));
-            currentVideoIndex = 0;
-            txtVideoInfo.setText(mediaFiles.get(0).getPath().substring(mediaFiles.get(0).getPath().lastIndexOf("/") + 1));
-            filePath = mediaFiles.get(0).getPath();
-            videoPlayer_isPlaying = mediaPlayer.isPlaying();
-            seekBar.setEnabled(true);
+                if (new File(favorite.getFilePath()).exists()) {
+                    mediaFile = new MediaFile();
+                    mediaFile.setPath(favorite.getFilePath());
+                    mediaFiles.add(mediaFile);
 
-            surfaceCreated(playerSurfaceView.getHolder());
+                    if (favorite.getSubTitlePath() != null)
+                        mediaFilesSubtitleList.add(favorite.getSubTitlePath());
+                    else
+                        mediaFilesSubtitleList.add(loadSubtitleBaseVideoFilename(mediaFile.getPath()));
+                } else {
+                    //if favorite file not exist delete from favorite table from DB
+                    videoPlayerSQLiteHelper.deleteFavorite(favorite.getFilePath());
+                }
+            }
+
+            if (mediaFiles.size() > 0) {
+                txtSelectedCountVideo.setText(getResources().getString(R.string.label_video_1_of).concat(String.valueOf(mediaFiles.size())));
+                currentVideoIndex = 0;
+                txtVideoInfo.setText(mediaFiles.get(0).getPath().substring(mediaFiles.get(0).getPath().lastIndexOf("/") + 1));
+                filePath = mediaFiles.get(0).getPath();
+                videoPlayer_isPlaying = mediaPlayer.isPlaying();
+                seekBar.setEnabled(true);
+
+                surfaceCreated(playerSurfaceView.getHolder());
+            } else {
+                Snackbar snackbar = Snackbar.make(videoPlayerCoordinator, "No video  has been added to your Favorite list!", Snackbar.LENGTH_LONG);
+                snackbar.getView().setBackgroundColor(ContextCompat.getColor(VideoPlayerActivity.this, R.color.color_orange));
+                snackbar.show();
+            }
         } else {
             Snackbar snackbar = Snackbar.make(videoPlayerCoordinator, "No video  has been added to your Favorite list!", Snackbar.LENGTH_LONG);
             snackbar.getView().setBackgroundColor(ContextCompat.getColor(VideoPlayerActivity.this, R.color.color_orange));
@@ -327,61 +340,6 @@ public class VideoPlayerActivity extends AppCompatActivity implements SurfaceHol
         });
     }
 
-    public void openDialog() {
-
-        AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-        alertDialog.setCancelable(false);
-
-        // Set Custom Title
-        TextView title = new TextView(this);
-        // Title Properties
-        title.setText("Custom Dialog Box");
-        title.setPadding(10, 10, 10, 10);   // Set Position
-        title.setGravity(Gravity.CENTER);
-        title.setTextColor(Color.BLACK);
-        title.setTextSize(20);
-        alertDialog.setCustomTitle(title);
-
-        // Set Message
-        TextView msg = new TextView(this);
-        // Message Properties
-        msg.setText("I am a Custom Dialog Box. \n Please Customize me.");
-        msg.setGravity(Gravity.CENTER_HORIZONTAL);
-        msg.setTextColor(Color.BLACK);
-        alertDialog.setView(msg);
-
-        // Set Button
-        // you can more buttons
-        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                // Perform Action on Button
-            }
-        });
-
-        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "CANCEL", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                // Perform Action on Button
-            }
-        });
-
-        new Dialog(getApplicationContext());
-        alertDialog.show();
-
-        // Set Properties for OK Button
-        final Button okBT = alertDialog.getButton(AlertDialog.BUTTON_NEUTRAL);
-        LinearLayout.LayoutParams neutralBtnLP = (LinearLayout.LayoutParams) okBT.getLayoutParams();
-        neutralBtnLP.gravity = Gravity.FILL_HORIZONTAL;
-        okBT.setPadding(50, 10, 10, 10);   // Set Position
-        okBT.setTextColor(Color.BLUE);
-        okBT.setLayoutParams(neutralBtnLP);
-
-        final Button cancelBT = alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE);
-        LinearLayout.LayoutParams negBtnLP = (LinearLayout.LayoutParams) okBT.getLayoutParams();
-        negBtnLP.gravity = Gravity.FILL_HORIZONTAL;
-        cancelBT.setTextColor(Color.RED);
-        cancelBT.setLayoutParams(negBtnLP);
-    }
-
     private void prepareViews(boolean isPlaying) {
         txtSubtitle.setText("");
         txtVideoDuration.setText(formatDuration(mediaPlayer.getDuration()));
@@ -459,8 +417,7 @@ public class VideoPlayerActivity extends AppCompatActivity implements SurfaceHol
         forwardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //videoPlayer.seekTo(videoPlayer.getCurrentPosition() + 10000);
-                mediaPlayer.seekTo(mediaPlayer.getCurrentPosition() + 10000);
+                mediaPlayer.seekTo(mediaPlayer.getCurrentPosition() + 60000);
             }
         });
         ImageView rewindButton = findViewById(R.id.rewind_button);
@@ -468,7 +425,7 @@ public class VideoPlayerActivity extends AppCompatActivity implements SurfaceHol
             @Override
             public void onClick(View v) {
                 //videoPlayer.seekTo(videoPlayer.getCurrentPosition() - 10000);
-                mediaPlayer.seekTo(mediaPlayer.getCurrentPosition() - 10000);
+                mediaPlayer.seekTo(mediaPlayer.getCurrentPosition() - 60000);
             }
         });
 

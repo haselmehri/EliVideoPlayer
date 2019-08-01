@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:2:1-79:12
-INJECTED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:2:1-79:12
-INJECTED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:2:1-79:12
-INJECTED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:2:1-79:12
+ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:2:1-81:12
+INJECTED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:2:1-81:12
+INJECTED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:2:1-81:12
+INJECTED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:2:1-81:12
 MERGED from [com.github.jaiselrahman:FilePicker:1.1.1] C:\Users\Haselmehri\.gradle\caches\transforms-1\files-1.1\FilePicker-1.1.1.aar\acd12efd7d3fec8d11f5d6b55ee0ed91\AndroidManifest.xml:2:1-31:12
 MERGED from [com.android.support:design:28.0.0] C:\Users\Haselmehri\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\36a3feca8c4d0f58969f6f8456786ef3\AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Haselmehri\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\4b0cfd657046aa1a871a899683274975\AndroidManifest.xml:17:1-22:12
@@ -64,25 +64,25 @@ MERGED from [com.crashlytics.sdk.android:beta:1.2.10] C:\Users\Haselmehri\.gradl
 MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.6.6] C:\Users\Haselmehri\.gradle\caches\transforms-1\files-1.1\crashlytics-core-2.6.6.aar\7cae8a9497d56ed145a5a04d816c5ae1\AndroidManifest.xml:45:1-56:12
 MERGED from [com.crashlytics.sdk.android:answers:1.4.5] C:\Users\Haselmehri\.gradle\caches\transforms-1\files-1.1\answers-1.4.5.aar\ac225c88a85a74f616be145571dd020b\AndroidManifest.xml:2:1-13:12
 MERGED from [io.fabric.sdk.android:fabric:1.4.6] C:\Users\Haselmehri\.gradle\caches\transforms-1\files-1.1\fabric-1.4.6.aar\674084bafa93ffb6a9359746f559faa1\AndroidManifest.xml:22:1-33:12
-INJECTED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:2:1-79:12
-INJECTED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:2:1-79:12
-INJECTED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:2:1-79:12
+INJECTED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:2:1-81:12
+INJECTED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:2:1-81:12
+INJECTED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:2:1-81:12
 	package
 		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:3:5-48
 		INJECTED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml
 		INJECTED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml
-		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:2:1-79:12
+		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:2:1-81:12
 		INJECTED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml
-		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:2:1-79:12
+		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:2:1-81:12
 		INJECTED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:5:5-77:19
+ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:5:5-79:19
 MERGED from [com.github.jaiselrahman:FilePicker:1.1.1] C:\Users\Haselmehri\.gradle\caches\transforms-1\files-1.1\FilePicker-1.1.1.aar\acd12efd7d3fec8d11f5d6b55ee0ed91\AndroidManifest.xml:15:5-29:19
 MERGED from [com.github.jaiselrahman:FilePicker:1.1.1] C:\Users\Haselmehri\.gradle\caches\transforms-1\files-1.1\FilePicker-1.1.1.aar\acd12efd7d3fec8d11f5d6b55ee0ed91\AndroidManifest.xml:15:5-29:19
 MERGED from [com.android.support:design:28.0.0] C:\Users\Haselmehri\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\36a3feca8c4d0f58969f6f8456786ef3\AndroidManifest.xml:22:5-20
@@ -156,61 +156,61 @@ MERGED from [io.fabric.sdk.android:fabric:1.4.6] C:\Users\Haselmehri\.gradle\cac
 	android:name
 		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:6:9-40
 activity#haselmehri.app.com.elivideoplayer.VideoPlayerActivity
-ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:13:9-76:20
+ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:13:9-78:20
 	android:exported
-		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:15:13-36
+		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:16:13-36
 	android:configChanges
-		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:14:13-59
+		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:15:13-59
 	android:theme
-		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:16:13-55
+		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:17:13-55
 	android:name
-		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:13:19-54
+		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:14:13-48
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:17:13-20:29
+ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:18:13-22:29
 action#android.intent.action.MAIN
-ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:18:17-69
+ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:19:17-69
 	android:name
-		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:18:25-66
+		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:19:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:19:17-77
+ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:21:17-77
 	android:name
-		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:19:27-74
+		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:21:27-74
 intent-filter#action:name:android.intent.action.MUSIC_PLAYER+action:name:android.intent.action.VIEW+category:name:android.intent.category.CATEGORY_APP_MUSIC+category:name:android.intent.category.DEFAULT+category:name:android.intent.category.LAUNCHER+data:scheme:rtsp
-ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:21:13-32:29
+ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:23:13-34:29
 action#android.intent.action.VIEW
-ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:22:17-69
+ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:24:17-69
 	android:name
-		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:22:25-66
+		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:24:25-66
 category#android.intent.category.DEFAULT
-ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:24:17-76
+ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:26:17-76
 	android:name
-		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:24:27-73
+		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:26:27-73
 action#android.intent.action.MUSIC_PLAYER
-ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:26:17-77
+ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:28:17-77
 	android:name
-		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:26:25-74
+		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:28:25-74
 category#android.intent.category.CATEGORY_APP_MUSIC
-ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:28:17-87
+ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:30:17-87
 	android:name
-		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:28:27-84
+		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:30:27-84
 data
-ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:31:17-47
+ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:33:17-47
 	android:scheme
-		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:31:23-44
+		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:33:23-44
 	android:mimeType
-		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:45:23-49
+		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:47:23-49
 intent-filter#action:name:android.intent.action.MUSIC_PLAYER+action:name:android.intent.action.VIEW+category:name:android.intent.category.CATEGORY_APP_MUSIC+category:name:android.intent.category.DEFAULT+category:name:android.intent.category.LAUNCHER+data:mimeType:application/sdp+data:mimeType:video/*+data:scheme:content+data:scheme:file
-ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:33:13-47:29
+ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:35:13-49:29
 intent-filter#action:name:android.intent.action.MUSIC_PLAYER+action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.CATEGORY_APP_MUSIC+category:name:android.intent.category.DEFAULT+category:name:android.intent.category.LAUNCHER+data:mimeType:video/*+data:scheme:http
-ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:48:13-61:29
+ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:50:13-63:29
 category#android.intent.category.BROWSABLE
-ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:57:17-78
+ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:59:17-78
 	android:name
-		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:57:27-75
+		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:59:27-75
 intent-filter#action:name:android.intent.action.MUSIC_PLAYER+action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.CATEGORY_APP_MUSIC+category:name:android.intent.category.DEFAULT+category:name:android.intent.category.LAUNCHER+data:mimeType:video/*+data:scheme:content
-ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:62:13-75:29
+ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:64:13-77:29
 	android:priority
-		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:62:28-49
+		ADDED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml:64:28-49
 uses-sdk
 INJECTED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\Project\Android\EliVideoPlayer\app\src\main\AndroidManifest.xml

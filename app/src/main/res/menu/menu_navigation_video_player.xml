@@ -11,7 +11,7 @@
             android:title="@string/menu_select_from_stiorage" />
         <item
             android:id="@+id/navigation_menu_favorite_list"
-            android:icon="@drawable/ic_favorite_gold"
+            android:icon="@drawable/ic_favorite_heart_gold"
             android:title="@string/menu_favorite_list" />
         <item
             android:id="@+id/navigation_menu_load_subtitle"
